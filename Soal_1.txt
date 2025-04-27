@@ -1,0 +1,69 @@
+1. Sistem Pakar Berbasis Aturan Logika (Minimal 4 Aturan)
+Misalkan:
+
+G1 = daun menguning
+G2 = terdapat bercak hitam
+G3 = daun berlubang
+G4 = tanaman layu
+
+Dan jenis hama:
+
+H1 = hama wereng
+H2 = hama jamur
+H3 = ulat daun
+H4 = hama akar
+
+Aturan (Rule-Based):
+
+IF G1 AND G4 THEN H1 (hama wereng)
+IF G2 THEN H2 (hama jamur)
+IF G3 THEN H3 (ulat daun)
+IF G4 AND NOT G1 THEN H4 (hama akar)
+
+2. Logika Proposisional, Pseudocode, dan Implementasi Python
+
+Logika Proposisional:
+
+R1: G1 ∧ G4 → H1
+R2: G2 → H2
+R3: G3 → H3
+R4: G4 ∧ ¬G1 → H4
+
+Pseudocode:
+
+IF G1 and G4:
+    return "Hama Wereng"
+ELSE IF G2:
+    return "Hama Jamur"
+ELSE IF G3:
+    return "Ulat Daun"
+ELSE IF G4 and not G1:
+    return "Hama Akar"
+ELSE:
+    return "Hama tidak diketahui"
+
+Python Code:
+
+def identifikasi_hama(g1, g2, g3, g4):
+    if g1 and g4:
+        return "Hama Wereng"
+    elif g2:
+        return "Hama Jamur"
+    elif g3:
+        return "Ulat Daun"
+    elif g4 and not g1:
+        return "Hama Akar"
+    else:
+        return "Hama tidak diketahui"
+
+print(identifikasi_hama(True, False, False, True))  # Output: Hama Wereng
+
+3. Penjelasan Alur Inferensi (Input → Output)
+
+Input Gejala: 
+Pengguna memasukkan kondisi tanaman, misalnya: daun menguning (True), daun berlubang (False), dll.
+Proses Inferensi:
+Sistem akan memeriksa gejala terhadap aturan yang ada.
+Jika kondisi gejala cocok dengan syarat dari sebuah aturan, maka kesimpulan (jenis hama) diambil.
+Output: 
+Sistem memberikan hasil berupa jenis hama yang paling mungkin menyerang berdasarkan aturan yang dipenuhi.
